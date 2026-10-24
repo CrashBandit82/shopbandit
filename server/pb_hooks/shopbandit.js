@@ -99,6 +99,18 @@ function endpointAllowed(url) {
   return allow.length === 0 || allow.indexOf(host) >= 0
 }
 
+// Optional "https://push.example.com=http://127.0.0.1:8091" (SHOPBANDIT_PUSH_LOCAL):
+// deliver to a ntfy on the same host directly when the public name is not
+// reachable from the server itself (no hairpin NAT).
+function deliveryUrl(url) {
+  const rule = $os.getenv("SHOPBANDIT_PUSH_LOCAL") || ""
+  const i = rule.indexOf("=")
+  if (i < 0) return url
+  const pub = rule.slice(0, i).replace(/\/+$/, "")
+  const local = rule.slice(i + 1).replace(/\/+$/, "")
+  return url.indexOf(pub + "/") === 0 ? local + url.slice(pub.length) : url
+}
+
 function displayName(user) {
   return (user.getString("name") || user.getString("email").split("@")[0] || "?").trim()
 }
@@ -143,7 +155,7 @@ function sendPendingPushes(app) {
         const url = ep.getString("endpoint_url")
         if (!endpointAllowed(url)) continue
         try {
-          const res = $http.send({ url: url, method: "POST", body: payload, headers: { "content-type": "application/json" }, timeout: 10 })
+          const res = $http.send({ url: deliveryUrl(url), method: "POST", body: payload, headers: { "content-type": "application/json" }, timeout: 10 })
           // 404/410 = endpoint gone (app uninstalled / unregistered)
           if (res.statusCode === 404 || res.statusCode === 410) app.delete(ep)
         } catch (err) {

@@ -32,6 +32,7 @@ docker compose exec pocketbase /pb/pocketbase superuser upsert admin@example.com
 | `SHOPBANDIT_PUBLIC_URL` | Öffentliche URL der API, für Links in E-Mails |
 | `SHOPBANDIT_TRUSTED_PROXY_HEADER` | Header mit der echten Client-IP (für Rate-Limits), meist `X-Real-IP` |
 | `SHOPBANDIT_PUSH_HOSTS` | Erlaubte UnifiedPush-Hosts, kommagetrennt (leer = jeder https-Host) |
+| `SHOPBANDIT_PUSH_LOCAL` | Optional `https://push.example.com=http://127.0.0.1:8091`: Push für den eigenen ntfy direkt lokal zustellen (wenn der Server seinen öffentlichen Namen nicht erreicht, z. B. ohne Hairpin-NAT) |
 | `SMTP_*` | Mailserver für Bestätigungs- und Passwort-Reset-Mails |
 | `NTFY_BASE_URL` | Öffentliche URL des ntfy-Servers |
 | `SHOPBANDIT_VERSION` | Image-Tag (`1.0.0`, `1.0`, `latest`) |
