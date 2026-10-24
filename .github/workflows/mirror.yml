@@ -21,5 +21,7 @@ jobs:
         run: |
           auth=$(printf 'oauth2:%s' "$TOKEN" | base64 -w0)
           git fetch origin main
+          # checkout may create lightweight tags; use the original annotated ones
+          git fetch --force origin 'refs/tags/*:refs/tags/*'
           git -c http.extraheader="AUTHORIZATION: basic $auth" push \
             https://gitlab.com/CrashBandit82/shopbandit.git origin/main:refs/heads/main --tags
