@@ -1,0 +1,39 @@
+# Production stack: PocketBase (ShopBandit image) + ntfy for UnifiedPush.
+# Copy .env.example to .env, adjust, then: docker compose up -d
+services:
+  pocketbase:
+    image: ghcr.io/crashbandit82/shopbandit-server:${SHOPBANDIT_VERSION:-latest}
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${PB_BIND:-127.0.0.1:8090}:8090"
+    volumes:
+      - pb_data:/pb/pb_data
+
+  ntfy:
+    image: binwiederhier/ntfy:v2.29.0
+    restart: unless-stopped
+    command: serve
+    env_file: .env
+    environment:
+      NTFY_BASE_URL: ${NTFY_BASE_URL}
+      NTFY_CACHE_FILE: /var/lib/ntfy/cache.db
+      NTFY_AUTH_FILE: /var/lib/ntfy/auth.db
+      NTFY_AUTH_DEFAULT_ACCESS: deny-all
+      # UnifiedPush topics only (random names), everything else is closed
+      NTFY_AUTH_ACCESS: "everyone:up*:read-write"
+      NTFY_BEHIND_PROXY: "true"
+      NTFY_ENABLE_LOGIN: "false"
+      NTFY_ATTACHMENT_CACHE_DIR: ""
+    ports:
+      - "${NTFY_BIND:-127.0.0.1:8091}:80"
+    volumes:
+      - ntfy_data:/var/lib/ntfy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:80/v1/health | grep -q true"]
+      interval: 60s
+      timeout: 5s
+
+volumes:
+  pb_data:
+  ntfy_data:

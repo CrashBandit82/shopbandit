@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.47.7"
+          channel: stable
+          cache: true
+      - run: ../tools/fetch-sqlite.sh
+      - run: flutter pub get
+      - run: dart run build_runner build -d
+      - run: flutter analyze --fatal-infos
+      - run: flutter test
+      - run: flutter build apk --debug
+
+  server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build server image
+        run: docker build -t shopbandit-server:ci server
+      - name: Start PocketBase
+        run: |
+          docker run -d --name pb -p 8090:8090 shopbandit-server:ci
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8090/api/health && break; sleep 1; done
+      - name: Integration smoke test
+        run: server/scripts/smoke-test.sh http://127.0.0.1:8090
+      - name: Logs
+        if: failure()
+        run: docker logs pb

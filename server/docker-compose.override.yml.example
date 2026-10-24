@@ -1,0 +1,9 @@
+# Development: copy to docker-compose.override.yml to build locally and use
+# the migrations/hooks from the working tree instead of the baked-in ones.
+services:
+  pocketbase:
+    build: .
+    image: shopbandit-server:dev
+    volumes:
+      - ./pb_migrations:/pb/pb_migrations:ro
+      - ./pb_hooks:/pb/pb_hooks:ro

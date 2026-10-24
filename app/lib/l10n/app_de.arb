@@ -1,0 +1,282 @@
+{
+  "@@locale": "de",
+  "appTitle": "ShopBandit",
+  "about": "Über",
+  "account": "Konto",
+  "add": "Hinzufügen",
+  "addItemHint": "Was fehlt?",
+  "addNamed": "{name} hinzufügen",
+  "@addNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "addedBy": "von {name}",
+  "@addedBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "admin": "Admin",
+  "backToLogin": "Zurück zur Anmeldung",
+  "boughtTimes": "{count, plural, =0{noch nie gekauft} =1{1× gekauft} other{{count}× gekauft}}",
+  "@boughtTimes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "Abbrechen",
+  "catalogEmptyTitle": "Noch keine Artikel",
+  "catalogEmptyMessage": "Alles, was du einmal auf die Liste setzt, landet hier.",
+  "changeServer": "Server wechseln",
+  "changeServerHint": "Tippen zum Wechseln (meldet dich ab)",
+  "changeServerMessage": "Du wirst abgemeldet. Noch nicht übertragene Änderungen gehen verloren.",
+  "checkedOff": "{name} gekauft",
+  "@checkedOff": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "chooseDistributor": "Push-Dienst wählen",
+  "createAccount": "Konto erstellen",
+  "delete": "Löschen",
+  "deleteNamed": "{name} löschen",
+  "@deleteNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCatalogMessage": "Der Artikel verschwindet aus Vorschlägen und „Häufig gekauft“. Steht er auf der Liste, wird er dort auch entfernt.",
+  "deleted": "{name} gelöscht",
+  "@deleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "displayName": "Anzeigename",
+  "displayNameHelp": "Sehen die anderen in deinem Haushalt",
+  "email": "E-Mail",
+  "emailInvalid": "Bitte eine gültige E-Mail-Adresse eingeben",
+  "emailNotVerified": "E-Mail noch nicht bestätigt",
+  "emptyListTitle": "Alles erledigt!",
+  "emptyListMessage": "Die Liste ist leer. Tipp oben ein, was fehlt – oder wähle aus „Häufig gekauft“.",
+  "enterCode": "Einladungscode eingeben",
+  "errorAlreadyMember": "Du bist bereits in diesem Haushalt.",
+  "errorEmailTaken": "Diese E-Mail-Adresse kann nicht verwendet werden.",
+  "errorForbidden": "Dafür fehlt dir die Berechtigung.",
+  "errorGeneric": "Das hat nicht geklappt. Bitte später erneut versuchen.",
+  "errorInviteExpired": "Diese Einladung ist abgelaufen.",
+  "errorInviteInvalid": "Ungültige oder bereits verwendete Einladung.",
+  "errorLoginFailed": "E-Mail oder Passwort falsch.",
+  "errorOffline": "Keine Verbindung zum Server.",
+  "errorOnlyMember": "Du bist das einzige Mitglied.",
+  "errorPasswordRules": "Das Passwort erfüllt die Regeln nicht.",
+  "errorTooManyRequests": "Zu viele Versuche. Bitte kurz warten.",
+  "forgotPassword": "Passwort vergessen?",
+  "frequentlyBought": "Häufig gekauft",
+  "hidePassword": "Passwort verbergen",
+  "showPassword": "Passwort anzeigen",
+  "household": "Haushalt",
+  "inviteCodeHint": "z. B. ABCD-EFGH-…",
+  "inviteExplain": "Lass den QR-Code in der ShopBandit-App scannen oder gib den Code weiter. Gültig 24 Stunden, nur einmal verwendbar.",
+  "inviteMember": "Mitglied einladen",
+  "inviteOtherServer": "Die Einladung gehört zu einem anderen Server ({server}).",
+  "@inviteOtherServer": {
+    "placeholders": {
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteQrLabel": "QR-Code der Einladung",
+  "inviteRevoked": "Einladung widerrufen.",
+  "inviteValidUntil": "Gültig bis {date}",
+  "@inviteValidUntil": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "join": "Beitreten",
+  "joinDiscardsOwn": "Deine bisherige Liste und dein Artikelkatalog werden dabei gelöscht.",
+  "joinHousehold": "Haushalt beitreten",
+  "joinMessage": "Haushalt „{name}“ mit {count, plural, =1{1 Mitglied} other{{count} Mitgliedern}} beitreten?",
+  "@joinMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "joined": "Willkommen in „{name}“!",
+  "@joined": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Sprache",
+  "languageSystem": "Systemsprache",
+  "leave": "Verlassen",
+  "leaveHousehold": "Haushalt verlassen",
+  "leaveHouseholdMessage": "Du bekommst wieder eine eigene, leere Liste.",
+  "list": "Liste",
+  "listCount": "{count, plural, =1{1 Artikel} other{{count} Artikel}}",
+  "@listCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "login": "Anmelden",
+  "loginSubtitle": "Eure Einkaufsliste – gemeinsam und offline.",
+  "logout": "Abmelden",
+  "logoutMessage": "Lokale Daten werden von diesem Gerät entfernt.",
+  "manageCatalog": "Artikelkatalog",
+  "manageCatalogHint": "Gespeicherte Artikel ansehen und löschen",
+  "markBought": "{name} als gekauft markieren",
+  "@markBought": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "memberCount": "{count, plural, =1{1 Mitglied} other{{count} Mitglieder}}",
+  "@memberCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "nameRequired": "Bitte einen Namen eingeben",
+  "next": "Weiter",
+  "notifications": "Benachrichtigungen",
+  "notifyChannelName": "Änderungen an der Liste",
+  "notifyChannelDescription": "Wenn andere Mitglieder Artikel hinzufügen",
+  "notifyItemsAdded": "{who} {count, plural, =1{hat 1 Artikel hinzugefügt} other{hat {count} Artikel hinzugefügt}}",
+  "@notifyItemsAdded": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifyOnAdd": "Bei neuen Artikeln benachrichtigen",
+  "password": "Passwort",
+  "passwordConfirm": "Passwort wiederholen",
+  "passwordMismatch": "Passwörter stimmen nicht überein",
+  "passwordRequired": "Bitte Passwort eingeben",
+  "pushModeOff": "Aus",
+  "pushModePolling": "Ohne Push-App: Abfrage etwa alle 15 Minuten",
+  "pushModeUnifiedPush": "Sofort über UnifiedPush",
+  "pushPollingHint": "Für sofortige Benachrichtigungen die App „ntfy“ (F-Droid) installieren und hier erneut einschalten.",
+  "pwRuleLength": "Mindestens {count} Zeichen",
+  "@pwRuleLength": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pwRuleUpper": "Ein Großbuchstabe",
+  "pwRuleLower": "Ein Kleinbuchstabe",
+  "pwRuleDigit": "Eine Ziffer",
+  "pwRuleSpecial": "Ein Sonderzeichen",
+  "pwRuleOk": "erfüllt",
+  "pwRuleMissing": "fehlt",
+  "quantity": "Menge",
+  "quantityExample": "z. B. 2 oder 500 g",
+  "quantityHint": "Menge",
+  "remove": "Entfernen",
+  "removeMember": "{name} entfernen",
+  "@removeMember": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeMemberMessage": "{name} verliert den Zugriff auf die Liste und bekommt einen eigenen Haushalt.",
+  "@removeMemberMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "renameHousehold": "Haushalt umbenennen",
+  "resendVerification": "Bestätigungs-Mail erneut senden",
+  "resetExplain": "Gib deine E-Mail-Adresse ein. Du bekommst einen Link zum Zurücksetzen des Passworts.",
+  "resetSent": "Falls ein Konto existiert, ist die E-Mail unterwegs. Bitte auch den Spam-Ordner prüfen.",
+  "revokeInvite": "Einladung widerrufen",
+  "save": "Speichern",
+  "scanInvite": "Einladung scannen",
+  "sendResetLink": "Link senden",
+  "server": "Server",
+  "serverExplain": "ShopBandit speichert eure Liste auf einem eigenen Server. Nutze den voreingestellten oder trage deinen ein.",
+  "serverLabel": "Server: {host}",
+  "@serverLabel": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "serverSubtitle": "Mit welchem Server verbinden?",
+  "serverUnreachable": "Server nicht erreichbar oder kein ShopBandit-Server.",
+  "serverUrl": "Server-Adresse",
+  "settings": "Einstellungen",
+  "someone": "Jemand",
+  "syncDone": "Synchronisiert",
+  "syncError": "Synchronisierung fehlgeschlagen",
+  "syncOffline": "{count, plural, =0{Offline} =1{Offline – 1 Änderung ausstehend} other{Offline – {count} Änderungen ausstehend}}",
+  "@syncOffline": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncPending": "{count, plural, =1{1 Änderung ausstehend} other{{count} Änderungen ausstehend}}",
+  "@syncPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "syncRunning": "Synchronisiere …",
+  "undo": "Rückgängig",
+  "verificationSent": "Bestätigungs-Mail wurde gesendet.",
+  "youSuffix": "{name} (du)",
+  "@youSuffix": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

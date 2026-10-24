@@ -1,0 +1,28 @@
+# Native install (without Docker), see docs/SERVER.md
+[Unit]
+Description=ShopBandit ntfy (UnifiedPush)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=shopbandit
+Group=shopbandit
+EnvironmentFile=/opt/shopbandit/.env
+Environment=NTFY_LISTEN_HTTP=0.0.0.0:8091
+Environment=NTFY_CACHE_FILE=/opt/shopbandit/ntfy/cache.db
+Environment=NTFY_AUTH_FILE=/opt/shopbandit/ntfy/auth.db
+Environment=NTFY_AUTH_DEFAULT_ACCESS=deny-all
+Environment=NTFY_AUTH_ACCESS=everyone:up*:read-write
+Environment=NTFY_BEHIND_PROXY=true
+ExecStart=/opt/shopbandit/bin/ntfy serve
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/opt/shopbandit/ntfy
+MemoryMax=150M
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,24 @@
+# Native install (without Docker), see docs/SERVER.md
+[Unit]
+Description=ShopBandit PocketBase
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=shopbandit
+Group=shopbandit
+WorkingDirectory=/opt/shopbandit
+EnvironmentFile=/opt/shopbandit/.env
+ExecStart=/opt/shopbandit/bin/pocketbase serve --http=0.0.0.0:8090 --dir=/opt/shopbandit/pb_data --migrationsDir=/opt/shopbandit/pb_migrations --hooksDir=/opt/shopbandit/pb_hooks
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=4096
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/opt/shopbandit/pb_data
+MemoryMax=300M
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+<p>ShopBandit ist eine Einkaufsliste für den ganzen Haushalt. Alle sehen dieselbe Liste, Änderungen erscheinen sofort bei den anderen – und alles funktioniert auch ohne Netz.</p>
+<ul>
+<li>Eine Liste pro Haushalt: Artikel mit optionaler Menge, abhaken = gekauft (mit „Rückgängig“), wischen = löschen</li>
+<li>Offline-first: Änderungen werden gespeichert und synchronisiert, sobald wieder Verbindung besteht</li>
+<li>Artikelkatalog mit Autovervollständigung und „Häufig gekauft“</li>
+<li>Familie einladen per QR-Code (24 Stunden gültig, einmalig verwendbar)</li>
+<li>Benachrichtigungen über UnifiedPush (z. B. ntfy) – ohne Google-Dienste</li>
+<li>Deutsch und Englisch, heller und dunkler Modus</li>
+</ul>
+<p>ShopBandit braucht einen ShopBandit-Server (PocketBase). Ein öffentlicher Server ist voreingestellt; den eigenen Server kann man mit Docker in wenigen Minuten aufsetzen – Anleitung im Quellcode-Repository.</p>

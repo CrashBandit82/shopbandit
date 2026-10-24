@@ -1,0 +1,8 @@
+# secrets – never commit
+*.jks
+*.keystore
+key.properties
+.env
+# build output
+build/
+.dart_tool/
