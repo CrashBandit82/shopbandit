@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart' show DatabaseConnection, driftRuntimeOptions;
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -52,6 +53,14 @@ Future<void> _dispose(WidgetTester tester, AppSession session) => tester.pumpWid
 void main() {
   driftRuntimeOptions.dontWarnAboutMultipleDatabases = true;
 
+  testWidgets('gradient header uses light status bar icons', (tester) async {
+    final session = await _session(withRepo: true);
+    await tester.pumpWidget(_app(session, const ListScreen()));
+    await tester.pumpAndSettle();
+    expect(tester.widget<AppBar>(find.byType(AppBar)).systemOverlayStyle, SystemUiOverlayStyle.light);
+    await _dispose(tester, session);
+  });
+
   testWidgets('login validates input before calling the server', (tester) async {
     final session = await _session();
     await tester.pumpWidget(_app(session, const LoginScreen()));
@@ -94,6 +103,16 @@ void main() {
     expect(find.text('Alles erledigt!'), findsOneWidget);
     expect(find.text('Milch gekauft'), findsOneWidget);
 
+    // undo snack bar disappears by itself (also after the last item)
+    await tester.pump(const Duration(seconds: 5));
+    await tester.pumpAndSettle();
+    expect(find.text('Milch gekauft'), findsNothing);
+
+    await tester.enterText(find.widgetWithText(TextField, 'Was fehlt?'), 'Milch');
+    await tester.tap(find.byTooltip('Hinzufügen'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Milch als gekauft markieren'));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Rückgängig'));
     await tester.pumpAndSettle();
     expect(find.widgetWithText(ListTile, 'Milch'), findsOneWidget);

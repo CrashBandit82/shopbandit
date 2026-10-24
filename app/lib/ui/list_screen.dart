@@ -255,6 +255,8 @@ class _EntryTileState extends ConsumerState<_EntryTile> {
     messenger
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
+        // with an action Flutter keeps the snack bar until tapped otherwise
+        persist: false,
         content: Text(t.checkedOff(row.item.name)),
         action: SnackBarAction(label: t.undo, onPressed: () => repo.check(row, undo: true)),
       ));
@@ -271,6 +273,8 @@ class _EntryTileState extends ConsumerState<_EntryTile> {
     messenger
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
+        // with an action Flutter keeps the snack bar until tapped otherwise
+        persist: false,
         content: Text(t.deleted(row.item.name)),
         action: SnackBarAction(label: t.undo, onPressed: () => repo.deleteEntry(row.entry.id, undo: true)),
       ));

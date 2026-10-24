@@ -1,0 +1,1 @@
+Behebt: Statusleiste im hellen Modus kaum lesbar; „Rückgängig“-Meldung verschwand nicht mehr.

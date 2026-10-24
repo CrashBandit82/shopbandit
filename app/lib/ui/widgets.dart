@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pocketbase/pocketbase.dart';
 
@@ -56,6 +57,9 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: actions,
       foregroundColor: Colors.white,
       backgroundColor: Colors.transparent,
+      // transparent background would otherwise give dark status bar icons
+      // on the blue gradient in light mode
+      systemOverlayStyle: SystemUiOverlayStyle.light,
       flexibleSpace: const DecoratedBox(decoration: BoxDecoration(gradient: Brand.headerGradient)),
     );
   }

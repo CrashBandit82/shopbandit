@@ -1,0 +1,1 @@
+Fixes: status bar hard to read in light mode; undo message did not disappear.
