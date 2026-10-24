@@ -92,6 +92,21 @@ client_max_body_size 5m;
 
 NPM setzt `X-Real-IP` bereits selbst.
 
+Empfohlen: PocketBase-Dashboard und Superuser-Login nur aus dem eigenen Netz erlauben (zusätzlich in *Advanced*):
+
+```nginx
+location ^~ /_/ {
+  allow 192.168.0.0/16;
+  deny all;
+  include conf.d/include/proxy.conf;
+}
+location ^~ /api/collections/_superusers/ {
+  allow 192.168.0.0/16;
+  deny all;
+  include conf.d/include/proxy.conf;
+}
+```
+
 ## ntfy für UnifiedPush
 
 Die Compose-Datei (und die systemd-Unit) setzen:

@@ -1,0 +1,1 @@
+Entfernt unnötige Berechtigungen (Mikrofon, Speicher).
