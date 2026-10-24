@@ -12,9 +12,9 @@ RepoType: git
 Repo: https://github.com/CrashBandit82/shopbandit.git
 
 Builds:
-  - versionName: 1.0.3
-    versionCode: 1004
-    commit: 4a20cf25c28e2a86f04d839f2cb1a9728a05acc2
+  - versionName: 1.0.4
+    versionCode: 1005
+    commit: 4d975139e96ea76e528a2b0cdfd3034566cb7f5a
     subdir: app
     sudo:
       - apt-get update
@@ -36,9 +36,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-arm
     ndk: r28c
 
-  - versionName: 1.0.3
-    versionCode: 2004
-    commit: 4a20cf25c28e2a86f04d839f2cb1a9728a05acc2
+  - versionName: 1.0.4
+    versionCode: 2005
+    commit: 4d975139e96ea76e528a2b0cdfd3034566cb7f5a
     subdir: app
     sudo:
       - apt-get update
@@ -60,9 +60,9 @@ Builds:
       - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-arm64
     ndk: r28c
 
-  - versionName: 1.0.3
-    versionCode: 4004
-    commit: 4a20cf25c28e2a86f04d839f2cb1a9728a05acc2
+  - versionName: 1.0.4
+    versionCode: 4005
+    commit: 4d975139e96ea76e528a2b0cdfd3034566cb7f5a
     subdir: app
     sudo:
       - apt-get update
@@ -91,5 +91,5 @@ VercodeOperation:
   - 2000 + %c
   - 4000 + %c
 UpdateCheckData: app/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.0.3
-CurrentVersionCode: 4004
+CurrentVersion: 1.0.4
+CurrentVersionCode: 4005
