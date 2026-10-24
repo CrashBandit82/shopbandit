@@ -32,6 +32,8 @@ _Folgen._ (`fastlane/metadata/android/*/images/phoneScreenshots/`)
 - **GitHub-Releases**: signierte APKs (pro ABI + universell) unter [Releases](https://github.com/CrashBandit82/shopbandit/releases).
 - **F-Droid**: in Vorbereitung.
 
+Quellcode auch auf GitLab (Spiegel): https://gitlab.com/CrashBandit82/shopbandit
+
 Beim ersten Start fragt die App nach der Server-Adresse (Standard: `https://shop.macrobandit.at`). Du kannst jeden eigenen ShopBandit-Server eintragen.
 
 **Sofortige Benachrichtigungen**: [ntfy aus F-Droid](https://f-droid.org/packages/io.heckel.ntfy/) installieren, in ntfy den eigenen Server als Standard-Server eintragen (z. B. `https://push.example.com`), dann in ShopBandit unter *Einstellungen → Benachrichtigungen* einschalten.
