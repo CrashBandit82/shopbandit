@@ -61,6 +61,18 @@ void main() {
     await _dispose(tester, session);
   });
 
+  testWidgets('gradient header fills the whole app bar', (tester) async {
+    final session = await _session(withRepo: true);
+    await tester.pumpWidget(_app(session, const ListScreen()));
+    await tester.pumpAndSettle();
+    final gradient = find.descendant(
+      of: find.byType(AppBar),
+      matching: find.byWidgetPredicate((w) => w is DecoratedBox && w.decoration == const BoxDecoration(gradient: Brand.headerGradient)),
+    );
+    expect(tester.getSize(gradient), tester.getSize(find.byType(AppBar)));
+    await _dispose(tester, session);
+  });
+
   testWidgets('login validates input before calling the server', (tester) async {
     final session = await _session();
     await tester.pumpWidget(_app(session, const LoginScreen()));

@@ -60,7 +60,11 @@ class GradientAppBar extends StatelessWidget implements PreferredSizeWidget {
       // transparent background would otherwise give dark status bar icons
       // on the blue gradient in light mode
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      flexibleSpace: const DecoratedBox(decoration: BoxDecoration(gradient: Brand.headerGradient)),
+      // AppBar stacks flexibleSpace with loose constraints; a childless
+      // DecoratedBox would collapse to zero height without the expand
+      flexibleSpace: const SizedBox.expand(
+        child: DecoratedBox(decoration: BoxDecoration(gradient: Brand.headerGradient)),
+      ),
     );
   }
 }

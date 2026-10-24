@@ -1,0 +1,1 @@
+Behebt: Kopfzeile ohne blauen Verlauf, Titel und Symbole im hellen Modus unlesbar.

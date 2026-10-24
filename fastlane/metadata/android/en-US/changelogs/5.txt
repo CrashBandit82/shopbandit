@@ -1,0 +1,1 @@
+Fixes: header missing its blue gradient, title and icons unreadable in light mode.
