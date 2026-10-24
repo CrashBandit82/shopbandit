@@ -1,0 +1,1 @@
+Fixes: release build got stuck on the splash screen at start.

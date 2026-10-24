@@ -16,8 +16,13 @@ Future<void> main() async {
   final prefs = await SharedPreferences.getInstance();
   final session = AppSession(prefs: prefs, db: AppDatabase());
   PushService.instance.attach(session);
-  await initPushCallbacks(onListChanged: () => session.sync?.sync());
-  await initNotifications();
+  // Push/notification setup must never block the app start.
+  try {
+    await initPushCallbacks(onListChanged: () => session.sync?.sync());
+    await initNotifications();
+  } catch (e) {
+    debugPrint('notification setup failed: $e');
+  }
   await session.init();
   unawaited(PushService.instance.resume());
 

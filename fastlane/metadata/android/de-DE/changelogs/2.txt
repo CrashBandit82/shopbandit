@@ -1,0 +1,1 @@
+Behebt: App blieb im Release-Build beim Start am Logo hängen.
